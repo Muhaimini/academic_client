@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Provider as QueryClientProvider } from "~/utils/react-query";
+import Container from "~/views/wrappers/container";
 
 import "~/styles/globals.css";
 
@@ -10,13 +11,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body className="antialiased">
-        <QueryClientProvider>{children}</QueryClientProvider>
+        <QueryClientProvider>
+          <Container>{children}</Container>
+        </QueryClientProvider>
       </body>
     </html>
   );
